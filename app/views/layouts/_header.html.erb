@@ -1,14 +1,14 @@
 <header>
-  <div class="py-2" style="background-color: #FFF5EE;">
+  <div class="py-2" style="background-color: #3A98B9;">
     <div class="container">
       <div class="d-flex justify-content-between">
         <h1>
           <%= link_to root_path do %>
-            <%= image_tag 'logo.png', class: "rounded-circle mb-0", style: "background-color: #FFSEE; padding-top: 4px; height: 96px; line-height: 96px;" %>
+            車椅子サービス
           <% end %>
         </h1>
           <div class="f-flex flex-column">
-            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFF5EE;">
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3A98B9;">
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -18,29 +18,29 @@
                 <% if customer_signed_in? %>
                   <p class="mb-0 mr-3" style="height: 42px;line-height: 42px;">ようこそ、<%= current_customer.first_name %>さん！</p>
                   <li class="nav-item">
-                    <%= link_to 'プロフィール', customers_mypage_path, class: "nav-link text-dark border rounded btn mr-3" %>
+                    <%= link_to 'プロフィール', customers_profile_path, class: "nav-link text-dark border rounded btn mr-3" %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to '商品一覧', items_path, class: "nav-link text-dark border rounded btn mr-3" %>
+                    <%= link_to '商品一覧', destroy_customer_session_path, class: "nav-link text-dark border rounded btn mr-3" %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to 'カート', cart_items_path, class: "nav-link text-dark border rounded btn mr-3" %>
+                    <%= link_to 'カート', destroy_customer_session_path, class: "nav-link text-dark border rounded btn mr-3" %>
                   </li>
                   <li class="nav-item">
                     <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link text-dark border rounded btn' %>
                   </li>
                 <% elsif admin_signed_in? %>
                   <li class="nav-item">
-                    <%= link_to '商品一覧', admin_items_path, class: "nav-link text-dark border rounded btn mr-3" %>
+                    <%= link_to '商品一覧', destroy_admin_session_path, class: "nav-link text-dark border rounded btn mr-3" %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to '会員一覧', admin_customers_path,class: "nav-link text-dark border rounded btn mr-3" %>
+                    <%= link_to '会員一覧', destroy_admin_session_path,class: "nav-link text-dark border rounded btn mr-3" %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to '注文履歴一覧', admin_root_path, class: "nav-link text-dark border rounded btn mr-3" %>
+                    <%= link_to '注文履歴一覧', destroy_admin_session_path, class: "nav-link text-dark border rounded btn mr-3" %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to 'ジャンル一覧', admin_genres_path, class: "nav-link text-dark border rounded btn mr-3" %>
+                    <%= link_to 'ジャンル一覧', destroy_admin_session_path, class: "nav-link text-dark border rounded btn mr-3" %>
                   </li>
                   <li class="nav-item">
                     <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "nav-link text-dark border rounded btn" %>
@@ -50,7 +50,7 @@
                     <%= link_to 'About', about_path, class: "nav-link text-dark border rounded btn mr-3" %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to '商品一覧', items_path, class: "nav-link text-dark border rounded btn mr-3" %>
+                    <%= link_to '商品一覧', new_customer_registration_path, class: "nav-link text-dark border rounded btn mr-3" %>
                   </li>
                   <li class="nav-item">
                     <%= link_to '新規登録', new_customer_registration_path, class: 'nav-link text-dark border rounded btn mr-3' %>
@@ -63,12 +63,12 @@
             </div>
           </nav>
           <div class="mr-3" style="position: relative">
-            <%= form_with url: search_path, method: :get do |f| %>
-            <%= f.text_field :word, placeholder: 'Search', class: "ml-auto form-control", style: "width: 250px;" %>
-              <%= f.button type: "submit", class: "btn btn-defalt", style: "position: absolute; top: 0px; right: 0px;" do %>
+            <%#= form_with url: search_path, method: :get do |f| %>
+            <%#= f.text_field :word, placeholder: 'Search', class: "ml-auto form-control", style: "width: 250px;" %>
+              <%#= f.button type: "submit", class: "btn btn-defalt", style: "position: absolute; top: 0px; right: 0px;" do %>
                 <i class="fas fa-search text-dark"></i>
-              <% end %>
-            <% end %>
+              <%# end %>
+            <%# end %>
           </div>
         </div>
       </div>
