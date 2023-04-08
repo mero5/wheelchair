@@ -34,7 +34,7 @@ class Public::DeliveriesController < ApplicationController
 
   def destroy
     @delivery = Delivery.find(params[:id])
-    @delivery.destroy!
+    @delivery.destroy
     flash[:notice] = "削除いたしました"
     redirect_to deliveries_path
   end
