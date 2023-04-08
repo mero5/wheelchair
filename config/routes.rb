@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "homes#top"
     resources :customers, only: [:index,:show,:edit,:update]
+    resources :items
+    resources :categories, only: [:index, :edit, :create, :update, :destroy]
   end
 
   scope module: :public do
@@ -23,6 +25,7 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe'
     patch 'customers/withdrawal'
     resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
+    resources :items, only: [:index, :show]
   end
 
   root to: "homes#top"
