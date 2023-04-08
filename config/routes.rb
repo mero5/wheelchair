@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     patch 'customers/withdrawal'
     resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
+    resources :categories, only: [:index]
   end
 
   root to: "homes#top"
