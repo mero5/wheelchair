@@ -26,23 +26,23 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <% if customer_signed_in? %>
-                  <p class="mb-0 mr-3" style="height: 42px;line-height: 42px;">ようこそ、<%= current_customer.first_name %>さん！</p>
+                  <p class="mb-0 mr-3" style="height: 42px;line-height: 42px;"><%= current_customer.first_name %>さま</p>
                   <li class="nav-item mr-3">
                     <%= link_to customers_profile_path do %>
                       <i class="fas fa-user-cog text-dark fa-2x"></i>
                     <% end %>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item mr-3">
                     <%= link_to customers_profile_path do %>
                       <i class="fas fa-clipboard-list text-dark fa-2x"></i>
                     <% end %>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item mr-3">
                     <%= link_to customers_profile_path do %>
                       <i class="fas fa-shopping-cart text-dark fa-2x"></i>
                     <% end %>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item mr-3">
                     <%= link_to destroy_customer_session_path do %>
                       <i class="fas fa-sign-out-alt text-dark fa-2x"></i>
                     <% end %>
