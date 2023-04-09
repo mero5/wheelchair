@@ -26,10 +26,17 @@ Rails.application.routes.draw do
     patch 'customers/withdrawal'
     resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
-    resources :categories, only: [:index]
+    resources :categories, only: [:index, :show]
+    resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
+    delete 'cart_items' => 'cart_items#destroy_all'
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/success' => 'orders#success'
+    resources :orders, only: [:index, :new, :create, :show]
   end
 
   root to: "homes#top"
   get 'about' => "homes#about"
+
+  resources :chats, only: [:show, :create]
 
 end
